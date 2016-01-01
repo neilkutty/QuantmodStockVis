@@ -1,0 +1,17 @@
+{
+    "contents" : "###\n##\n##  Quantmod Shiny Financial data app\n##  authored by Neil Kutty\n##  original code: http://shiny.rstudio.com/tutorial/lesson6/\n\n\nlibrary(shiny)\n\nshinyUI(fluidPage(\n  titlePanel(\"Quantmod Stock Vis\"),\n  helpText(\"Up to date price and indicator data for instruments through Quantmod presented in RShiny\"),\n  helpText(\"Original UI and Server code from http://shiny.rstudio.com/tutorial/lesson6/\"),\n\n  plotOutput(\"plot\",height = \"725px\"),\n\n  \n  fluidRow(\n  \n      column(width=4,offset=.5,\n        helpText(\"Select a stock to examine. \n               Information will be collected from yahoo finance.\"),\n      \n        textInput(\"symb\", \"Symbol\", \"BABA\"),\n       \n        dateRangeInput(\"dates\", \n                     \"Date range\",\n                     start = \"2015-01-01\", \n                     end = as.character(Sys.Date())),\n\n        checkboxInput(\"log\", \"Plot y axis on log scale\", \n                    value = FALSE),\n      \n        checkboxInput(\"adjust\", \n                    \"Adjust prices for inflation\", value = FALSE),\n        \n        selectInput(\"themeselection\", \"Choose chart theme:\",\n                    choices = c('Black chart theme'='black',\n                                'White chart theme'='white',\n                                'Beige chart theme'='beige'),\n                    selected = 'black')\n        \n      )\n)))",
+    "created" : 1449947200713.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2319288438",
+    "id" : "341B3EF4",
+    "lastKnownWriteTime" : 1451688956,
+    "path" : "~/Documents/project/StockVis/ui.R",
+    "project_path" : "ui.R",
+    "properties" : {
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "type" : "r_source"
+}

@@ -1,0 +1,9 @@
+{
+    "path" : "~/Documents/project/StockVis",
+    "sortOrder" : [
+        {
+            "ascending" : true,
+            "columnIndex" : 2
+        }
+    ]
+}
