@@ -1,0 +1,17 @@
+{
+    "contents" : "library(quantmod)\n\n#Create an array 'symbols' to reference desired ts data\n# \n#\n\n\n#Core symbol array\nsymbols <- c('XLE','XOM','DJIA','GE')\n\ngetSymbols(symbols)\n\n# OCT2015 Mutual Funds <~>\n#BSCFX,FBIOX,HLEMX,POGRX\n###\nlibrary(quantmod)\nsymbols <- c('BSCFX','FBIOX','HLEMX','POGRX')\ngetSymbols(symbols)\n\n\n#Multicharting\npar(mfrow=c(2,1))\nplot()\n\n# OCT2015 Mutual Funds <~>\n#\n\n###________________________________\n# ARKW <- ETF investing in BitCoins\n# MMJ Stocks <- 'TRTC','CNAB', 'GWPH'\n# MMJ Descr <- ('TerraTech','United C Corp','GW Pharmaceuticals')\nsymbols <- c('INTC','XLE','HACK','DJIA','FRO','GE','MMM','BA','ARKW','TRTC')\n\n\ngetSymbols(symbols)\n\n#Create indicator variable\nindicators <- c(addVo(),addBBands(),addRSI(),addMACD(slow=30,fast=16))\n\n#High of observation minus minimum Low of Series\nHi(DJIA)-min(Lo(DJIA))\n\n#High minus Low over Close minus Open\n(Hi(DJIA)-Lo(DJIA))/(Cl(DJIA)-Op(DJIA))\n\n#(Close minus High)/Close \n##provides a derived indicator that measures the distance between the Highest Price and the Closing Price as a percentage of the Close\nHCL_DJIA <- (Hi(DJIA)-Cl(DJIA))/(Cl(DJIA))\n\n\n#Basic Charting\n\n#DJIA last 2 years weekly \nchartSeries(to.weekly(DJIA),type='matchsticks',subset='last 24 months',TA=c(addVo(),addBBands(),addRSI(),addMACD(slow=16,fast=8)))\n\n#DJIA last 6 months daily\nchartSeries(to.daily(DJIA),type='candlesticks',subset='last 6 months',TA=c(addVo(),addBBands(),addRSI(),addMACD(slow=16,fast=8)))\n\ncandleChart(DJIA,multi.col=TRUE,theme='beige',subset='last 5 months')\naddBBands(slow=10,fast=5)\n\n#................................................................#\n#Candle chart with parameters ##Beige and White themes#\n##\n#................................................................#\n\n\npar(mfrow=c(2,2))\ncandleChart(DJIA,multi.col=TRUE,theme='beige',subset='2007-12::2008')\n\ncandleChart(to.monthly(DJIA),multi.col=TRUE,theme='white',type='candles',subset='2010-01::2015')\n\ncandleChart(to.daily(DJIA),type='candlesticks',subset='last 6 months',TA=c(addVo(),addBBands(),addRSI(),addMACD(slow=16,fast=8)),theme='beige')\n\ncandleChart(to.daily(DJIA),type='candlesticks',subset='last 6 months',TA=c(addVo(),addBBands(),addRSI(),addMACD(slow=24,fast=8)),theme='beige')\n\n\n##For loop multicharting.........................................#\n\nlibrary(quantmod)\ngetSymbols(\"DJIA\")\n\nop <- par(mfrow=c(4,3))\nfor(i in length(symbols)) {\n  chartSeries(\n    symbols[i], \"candlesticks\", \n    TA=NULL, # No volume plot\n    layout=NULL\n  )\n}\npar(op)\n\n",
+    "created" : 1451869763467.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1770865969",
+    "id" : "FF4920A0",
+    "lastKnownWriteTime" : 1448328896,
+    "path" : "~/Documents/project/qmod.R",
+    "project_path" : null,
+    "properties" : {
+    },
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "type" : "r_source"
+}

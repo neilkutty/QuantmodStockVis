@@ -23,7 +23,7 @@ shinyServer(function(input, output) {
   
   output$plot <- renderPlot({
   chartSeries(finalInput(), theme = input$themeselection, 
-              type = "candles", log.scale = input$log, TA = indicators)
+              type = input$charttype, log.scale = input$log, TA = indicators)
   })
 })
 
