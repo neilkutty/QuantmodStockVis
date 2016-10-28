@@ -1,4 +1,4 @@
-###
+###x``
 ##
 ##  Quantmod Shiny Financial data app
 ##  authored by Neil Kutty
@@ -22,7 +22,7 @@ shinyServer(function(input, output) {
   })
   
   output$plot <- renderPlot({
-  chartSeries(finalInput(), theme = input$themeselection, 
+  chartSeries(finalInput(), name = input$symb, theme = input$themeselection, 
               type = input$charttype, log.scale = input$log, TA = indicators)
   })
 })

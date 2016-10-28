@@ -1,8 +1,8 @@
 name: QuantmodStockVis
 account: kuttyman
 server: shinyapps.io
-bundleId: 341851
+bundleId: 342588
 url: https://kuttyman.shinyapps.io/QuantmodStockVis
-when: 1451689049.11683
+when: 1451879301.02903
 asMultiple: FALSE
 asStatic: FALSE

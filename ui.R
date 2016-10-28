@@ -11,17 +11,15 @@ shinyUI(fluidPage(
   titlePanel("Quantmod Stock Vis"),
   helpText("Up to date price and indicator data for instruments through Quantmod presented in RShiny"),
   helpText("Original UI and Server code from http://shiny.rstudio.com/tutorial/lesson6/"),
-
+  
  
   
   
   fluidRow(
   
       column(width=4,offset=.5,
-        helpText("Select a stock to examine. 
-               Information will be collected from yahoo finance."),
-      
-        textInput("symb", "Symbol", "BABA"),
+        
+        textInput("symb", "Symbol", "XLE"),
        
         selectInput("themeselection", "Choose chart theme:",
                     choices = c('Black chart theme'='black',
@@ -55,7 +53,6 @@ shinyUI(fluidPage(
  
   plotOutput("plot",height = "600px")
  
-  
 
 
 ))

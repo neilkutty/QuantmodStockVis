@@ -1,4 +1,5 @@
 {
+    "collab_server" : "",
     "contents" : "\n##  original code: http://shiny.rstudio.com/tutorial/lesson6/\n\n\nif (!exists(\".inflation\")) {\n  .inflation <- getSymbols('CPIAUCNS', src = 'FRED', \n                           auto.assign = FALSE)\n}  \n\n# adjusts yahoo finance data with the monthly consumer price index \n# values provided by the Federal Reserve of St. Louis\n# historical prices are returned in present values \nadjust <- function(data) {\n  \n  latestcpi <- last(.inflation)[[1]]\n  inf.latest <- time(last(.inflation))\n  months <- split(data)               \n  \n  adjust_month <- function(month) {               \n    date <- substr(min(time(month[1]), inf.latest), 1, 7)\n    coredata(month) * latestcpi / .inflation[date][[1]]\n  }\n  \n  adjs <- lapply(months, adjust_month)\n  adj <- do.call(\"rbind\", adjs)\n  axts <- xts(adj, order.by = time(data))\n  axts[ , 5] <- Vo(data)\n  axts\n}",
     "created" : 1449947294838.000,
     "dirty" : false,
@@ -7,6 +8,7 @@
     "hash" : "1878534509",
     "id" : "C5D4C20",
     "lastKnownWriteTime" : 1451688956,
+    "last_content_update" : 0,
     "path" : "~/Documents/project/QuantmodStockVis/helpers.R",
     "project_path" : "helpers.R",
     "properties" : {
@@ -14,5 +16,6 @@
     },
     "relative_order" : 3,
     "source_on_save" : false,
+    "source_window" : "",
     "type" : "r_source"
 }
