@@ -25,5 +25,9 @@ shinyServer(function(input, output) {
   chartSeries(finalInput(), name = input$symb, theme = input$themeselection, 
               type = input$charttype, log.scale = input$log, TA = indicators)
   })
+  
+  output$plot2 <- renderPlot({
+    
+  })
 })
 

@@ -15,7 +15,7 @@ shinyUI(fluidPage(
  
   
   
-  fluidRow(
+fluidRow(
   
       column(width=4,offset=.5,
         

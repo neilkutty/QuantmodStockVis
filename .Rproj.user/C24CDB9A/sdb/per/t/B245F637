@@ -1,17 +1,18 @@
 {
     "collab_server" : "",
-    "contents" : "###x``\n##\n##  Quantmod Shiny Financial data app\n##  authored by Neil Kutty\n##  original code: http://shiny.rstudio.com/tutorial/lesson6/\n\nlibrary(quantmod)\nsource(\"helpers.R\")\nshinyServer(function(input, output) {\n  indicators <- list(\"addMACD()\",\"addVo()\",\"addRSI()\",\"addBBands()\")\n  themeselect <- reactive({input$themeselection})\n  dataInput <- reactive({ \n    getSymbols(input$symb, src = \"yahoo\", \n               from = input$dates[1],\n               to = input$dates[2],\n               auto.assign = FALSE)\n             })\n  \n  finalInput <- reactive({\n    if (!input$adjust) return(dataInput())\n    adjust(dataInput())\n  })\n  \n  output$plot <- renderPlot({\n  chartSeries(finalInput(), name = input$symb, theme = input$themeselection, \n              type = input$charttype, log.scale = input$log, TA = indicators)\n  })\n})\n\n",
+    "contents" : "###x``\n##\n##  Quantmod Shiny Financial data app\n##  authored by Neil Kutty\n##  original code: http://shiny.rstudio.com/tutorial/lesson6/\n\nlibrary(quantmod)\nsource(\"helpers.R\")\nshinyServer(function(input, output) {\n  indicators <- list(\"addMACD()\",\"addVo()\",\"addRSI()\",\"addBBands()\")\n  themeselect <- reactive({input$themeselection})\n  dataInput <- reactive({ \n    getSymbols(input$symb, src = \"yahoo\", \n               from = input$dates[1],\n               to = input$dates[2],\n               auto.assign = FALSE)\n             })\n  \n  finalInput <- reactive({\n    if (!input$adjust) return(dataInput())\n    adjust(dataInput())\n  })\n  \n  output$plot <- renderPlot({\n  chartSeries(finalInput(), name = input$symb, theme = input$themeselection, \n              type = input$charttype, log.scale = input$log, TA = indicators)\n  })\n  \n  output$plot2 <- renderPlot({\n    \n  })\n})\n\n",
     "created" : 1449947209914.000,
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "3320993491",
+    "hash" : "4270626892",
     "id" : "B245F637",
-    "lastKnownWriteTime" : 1460242473,
-    "last_content_update" : 1460242473279,
+    "lastKnownWriteTime" : 1478582361,
+    "last_content_update" : 1478582361644,
     "path" : "~/Documents/project/QuantmodStockVis/server.R",
     "project_path" : "server.R",
     "properties" : {
+        "source_window_id" : "wdps3ymahpes2"
     },
     "relative_order" : 2,
     "source_on_save" : false,
